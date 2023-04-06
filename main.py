@@ -22,20 +22,14 @@ def update_data(data):
 
 
 def check_processes():
-    n = 600000
-    root.after(n, check_processes) # 600000
-    process_time = {}
+    process = {}
     timestamp = {}
-    counter = 0
-    while (counter + 1) * 1000 <= n:
-        current_app = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
-        timestamp[current_app] = int(time.time())
-        time.sleep(1)
-        if current_app not in process_time.keys():
-            process_time[current_app] = 0
-        process_time[current_app] = process_time[current_app]+int(time.time())-timestamp[current_app]
-        counter += 1
-    update_data(process_time)
+    current_app = psutil.Process(win32process.GetWindowThreadProcessId(GetForegroundWindow())[1]).name().replace(".exe", "")
+    timestamp[current_app] = int(time.time())
+    process[current_app] = 1
+    update_data(process)
+    print(process)
+    root.after(1000, check_processes)
 
 
 root.title("Graph Viewer")
