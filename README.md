@@ -1,3 +1,4 @@
-make main.py run on startup in background
+**Project Portfolio: https://github.com/calebyhan/CalebHan**
 
-make another py file to analyze data (view screen time)
+main.py - gets program running on screen and logs in data.json
+analyze.py - gets data and date input from user and displays bar chart
