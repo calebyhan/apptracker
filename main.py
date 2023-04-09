@@ -18,11 +18,6 @@ def update_data(data):
         json.dump(f, file)
 
 
-def get_dates():
-    f = json.load(open("data.json"))
-    return list(f.keys())
-
-
 def check_processes():
     while True:
         process = {}
